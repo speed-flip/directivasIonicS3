@@ -13,8 +13,44 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div>
+    <ion-button (click)="sum()">
+      Cumplir años
+    </ion-button>
+    <p>Tienes {{age}} años</p>
+    <ion-item *ngIf="age > 18">
+      Felicidades, ya eres mayor de edad.
+    </ion-item>
+    <hr />
+
+    <h2>2. Animales</h2>
+    <ion-item *ngFor="let name of names">
+      {{name}}
+    </ion-item>
+
+    <h2>3.</h2>
+    <ion-input type="number" [(ngModel)]="phoneNumber" placeholder="Ingrese su número de teléfono" />
+
+    <p>{{phoneNumber}}</p>
+
+    <h2>4.</h2>
+    <p>{{nota}}</p>
+
+    <div [ngClass]="{ 'aprobado': nota > 69, 'reprobado': nota < 69 }">
+      {{nota > 69 ? 'Aprobado' : 'Reprobado'}}
+    </div>
+
+    <h2>5.</h2>
+    <ion-label [ngStyle]="{color: colorHex}">
+      ngStyle ejemplo
+    </ion-label>
+
+    <h2>6.</h2>
+    <div [ngSwitch]="colorButton">
+      <ion-button *ngSwitchCase="'primary'">Botón Primario</ion-button>
+      <ion-button *ngSwitchCase="'dark'">Botón Oscuro</ion-button>
+      <ion-button *ngSwitchCase="'danger'">Botón de Peligro</ion-button>
+      <ion-button *ngSwitchDefault>Botón Predeterminado</ion-button>
+    </div>
   </div>
 </ion-content>
